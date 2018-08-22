@@ -31,24 +31,39 @@
   <link rel="stylesheet" href="/sos/css/morsecode.js.css">
 </head>
 <body style="background:#333;">
-      <div class="container">
+<div class="container" style="max-width:96%;">
+
 <div class="row" style="background:#fff;color:#000;">
-  <div class="call-to-action grid">
-    <div class="unit whole">
+  <div class="col-sm-2">message</div>
+  <div class="col-sm-2">morse out</div>
+  <div class="col-sm-2">binary out</div>
+  <div class="col-sm-2">frequency out</div>
+  <div class="col-sm-2">sound out</div>
+</div>
+<div class="row" style="background:#fff;color:#000;">
+  <div class="col-sm-2">
+    <div id="alphanumeric_input_for_encoding" contenteditable="true" style='border:#000 1px dotted'>
+      <b>Edit me.</b>
     </div>
   </div>
-  <div class="content grid">
-    <div class="unit one-third">
-  <div id="alphanumeric_input_for_encoding" contenteditable="true">
-    <b>Edit me.</b>
+  <div class="col-sm-2">
+    <div class="unit one-quarter" id="morse_code_output">
+      morse out
+    </div>
   </div>
-</div>
-<div class="unit two-thirds" id="morse_code_output">
-</div>
-</div>
+  <div class="col-sm-2">
+    <div id="binary_code_output">?</div>
   </div>
-<hr>
 
+  <div class="col-sm-2">
+    <div id="freq_code_output">?</div>
+  </div>
+   <div class="col-sm-2">
+    <div id="sound_code_output">?</div>
+  </div>
+</div>
+<br />
+<hr />
 
   <div class="header grid">
     <h1 class="unit whole">Docu stuff</h1>
