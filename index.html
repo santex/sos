@@ -5,14 +5,17 @@
   <title>sos message</title>
   <script src="/sos/js/morsecode.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
+
+
   document.onreadystatechange = function(){
     if(this.readyState === "complete"){
       var converter = new MorseCode()
           ,   input = document.getElementById("alphanumeric_input_for_encoding")
-          ,  output = document.getElementById("morse_code_output");
+          ,  output = document.getElementById("morse_code_output"),  bin = document.getElementById("bin_code_output");
       var makeitso = function(){
         if(typeof(input.textContent) !== "undefined"){
           output.textContent = converter.translate(input.textContent);
+          bin.textContent=converter.textToBin(input.textContent);
         } else {
           console.log("Input value:", input.textContent);
         }
@@ -52,7 +55,7 @@
     </div>
   </div>
   <div class="col-sm-2">
-    <div id="binary_code_output">?</div>
+    <div id="bin_code_output">?</div>
   </div>
 
   <div class="col-sm-2">
