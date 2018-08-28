@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>sos message</title>
+  <script src="/sos/js/change.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/sos/js/morsecode.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+
+  document.onreadystatechange = function(){
+    if(this.readyState === "complete"){
+      var converter = new MorseCode()
+          ,   input = document.getElementById("alphanumeric_input_for_encoding")
+          ,  output = document.getElementById("morse_code_output"),  bin = document.getElementById("bin_code_output");
+      var makeitso = function(){
+        if(typeof(input.textContent) !== "undefined"){
+          output.textContent = converter.translate(input.textContent);
+          bin.textContent=converter.textToBin(input.textContent);
+          play_sound(input.textContent);
+        } else {
+          console.log("Input value:", input.textContent);
+        }
+
+      };
+      input.onkeyup = makeitso;
+      //input.addEventListener("input", makeitso, false);
+      makeitso();
+      play_sound(input.textContent);
+    }
+  };
+  </script>
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat:700|Open+Sans:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sos/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/sos/css/gridism.css">
+  <link rel="stylesheet" href="/sos/css/morsecode.js.css">
+</head>
+<body style="background:#333;">
+<div class="container" style="max-width:96%;">
+
+<div class="row" style="background:#fff;color:#000;">
+  <div class="col-sm-2">message</div>
+  <div class="col-sm-2">morse out</div>
+  <div class="col-sm-2">binary out</div>
+  <div class="col-sm-2">frequency out</div>
+  <div class="col-sm-2">sound out</div>
+</div>
+<div class="row" style="background:#fff;color:#000;">
+  <div class="col-sm-2">
+    <div id="alphanumeric_input_for_encoding" contenteditable="true" style='border:#000 1px dotted'>SOS</div>
+  </div>
+  <div class="col-sm-2">
+    <div class="unit one-quarter" id="morse_code_output">SOS</div>
+  </div>
+  <div class="col-sm-2">
+    <div id="bin_code_output">?</div>
+  </div>
+
+  <div class="col-sm-2">
+    <div id="freq_code_output">?</div>
+  </div>
+   <div class="col-sm-2">
+    <div id="sound_code_output">?</div>
+  </div>
+</div>
+<br />
+<hr />
+
+  <div class="header grid">
+    <h1 class="unit whole">Docu stuff</h1>
+  </div>
+
+
+  <div class="footer grid">
+    <div class="unit whole center-on-mobiles">
+      <div class="container">
+<div class="container">
+     <div class="pagewraps">
+        <section class="site-content-wrap">
+           <div class="contentbox">
+<p><img src="/sos/img/message.webp" width="500px" /></p>
+<p><span style="color: #ffffff;">On Tuesday 21st August 2001 two new crop formations were reported near Chilbolton radio telescope in Hampshire, UK. Both were very impressive looking and consisted of a large number of small &#8216;pixels&#8217;, which when viewed from the air formed a recognisable shape &#8211; unlike many other crop formations.</span><br />
+<span style="color: #ffffff;">One represented a &#8216;human face&#8217; and the other resembled a radio transmission that SETI (the Search for Extra-Terrestrial Intelligence) sent from the Arecibo radio telescope in 1974.  </span></p>
+<p><span style="color: #ffffff;">This latter formation will be examined in this article, in which I hope to not only describe and explain the original transmission, but also to examine and decode a number of significant changes occurring in the crop formation.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/zz+AreciboReply.jpg" alt="" /></span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/ChilboltonMan.jpg" alt="" /></span><br />
+<span style="color: #ffffff;">After speaking to witnesses, it would appear that the &#8216;Arecibo&#8217; formation was created on August 20th. Although I could roughly make out the binary pattern of the formation from aerial photographs, some aspects were not quite clear enough to discern individual &#8216;digits&#8217;. Therefore I visited both formations myself (they are about 200m apart in the same field) on Saturday 25th August 2001.&#8221;</span></p>
+<p><span style="color: #ffffff;">An interesting interpretation of the &#8216;human face&#8217; crop formation comes from researcher and <a style="color: #ffffff;" href="http://www.thehiddenrecords.com/book.htm">writer</a>, <a style="color: #ffffff;" href="http://thehiddenrecords.com/mars">Wayne Herschel</a>. In his vision, the face resembles that of the Egyptian Sphinx and Viracocha, a prea-Inca god. But the most thought-provoking resemblance is to the famous <a style="color: #ffffff;" href="http://upload.wikimedia.org/wikipedia/commons/7/77/Martian_face_viking_cropped.jpg">Mars Face</a>.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Crop-Mars+Faces.png" alt="" /></span></p>
+<table>
+<tbody>
+<tr>
+<td><span style="color: #ffffff;"> </span></td>
+</tr>
+<tr>
+<td><span style="color: #ffffff;">(Credit: <a style="color: #ffffff;" href="http://thehiddenrecords.com/mars">Wayne Herschel</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span style="color: #ffffff;">The Arecibo message</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">&#8220;First, I will give some background to the original message sent from Arecibo, back in 1974. Arecibo is on the northern coast of Puerto Rico and contains a natural disc-shaped hole in the rock. Inside this bowl was constructed the world&#8217;s largest radio-telescope, with a diameter of 1000 feet.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">In 1974 a number of modifications had been carried out to the transmitter, enabling it to broadcast signals at a power of up to 20 terawatts (1 terawatt = 1 trillion watts) and as an inaugural test of these improvements it was decided by SETI to transmit an encoded message to the heavens. This signal was aimed towards the globular star cluster M13, some 25,000 light years away and consisting of some 300,000 stars in the constellation of Hercules.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The message was actually transmitted on November 16th 1974 and consisted of 1679 pulses of binary code (0&#8217;s and 1&#8217;s) &#8211; which took a little under three minutes to transmit. It was transmitted on a frequency of 2380MHz (which is significant later).</span></p>
+<p><span style="color: #ffffff;">Why 1679 digits?</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The reason for this is down to mathematics. 1679 is the unique product of two prime numbers; 23 and 73. Any sufficiently intelligent lifeform would no doubt look for unique, universal constructs &#8211; such as prime numbers, chemical element frequencies and binary digits. Don&#8217;t forget that because we could be trying to communicate with an intelligence completely different to our own, we cannot talk in terms of &#8216;human&#8217; systems, such as centimetres, feet, decimal numbers etc.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">Because ONLY the two prime numbers 23 and 73, when multiplied together, produce 1679 there can only be a single way to arrange the signal, if you were converting it into a matrix grid &#8211; 23 squares by 73 squares.</span></p>
+<p><span style="color: #ffffff;">The original binary code is shown in figure 1.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/code.gif" alt="" /></span></p>
+<p><span style="color: #ffffff;">Binary coding</span><br />
+<span style="color: #ffffff;">In order to fully understand the message encoded in the transmission, it&#8217;s essential to understand the binary code. This is actually much simpler than our base 10, decimal system. Whereas in base 10 we count from 1 to 9 and then carry 1 into the 10&#8217;s column and start again in the units column, until we&#8217;ve got 9 in the 10&#8217;s column and 9 in the units column. Then we have to carry 1 into the 100&#8217;s column and start again in the 10&#8217;s and units columns, and so on and so on.</span></p>
+<p><span style="color: #ffffff;">In binary each column goes up in powers of 2, hence the columns are units, 2&#8217;s, 4&#8217;s, 8&#8217;s, 16&#8217;s etc. Because we can only deal in 1&#8217;s and 0&#8217;s, we rapidly move up through the columns &#8211; because as soon as we exceed 1 we carry into the next column. For an example of counting in binary, see the table bellow.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/binary+counting.jpg" alt="" /></span></p>
+<p><span style="color: #ffffff;">To go back to the original transmission of binary pulses (fig.1), by converting it into 23 columns of 73 rows we get the matrix shown in figure 2 (bellow):</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/matrix+fig.+2.gif" alt="" /></span></p>
+<p><span class="apple-style-span" style="color: #ffffff;">You can now see a graphical pattern depicted by the 1&#8217;s and 0&#8217;s of the code. For clarity I&#8217;ve converted this into black squares (representing 1&#8217;s) and white (empty) squares (representing 0&#8217;s). You can see that viewing it like this, makes the actual message a lot clearer, as shown below, in figure 3 (bellow).</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/pattern+fig+3.gif" alt="" /></span></p>
+<p><span style="color: #ffffff;">This is where a slight puzzle becomes visible. By performing the steps described above, the literal translation of the original pulses is on the left of figure 3. However, the image printed in a couple of my books is that shown on the right of figure 3. </span></p>
+<p><span style="color: #ffffff;">This is an exact left-right mirror image of my decoding. I suspect that this is possibly an error which went un-noticed when the book went to print &#8211; although I have checked two books which both depict the same pattern as shown on the right of figure 3.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The pattern which occurred in the Chilbolton crop field, is the same image as shown in the books (ie. the one on the right of fig.3 and the mirror image of the original decoding). This could imply that <em>IF</em> someone hoaxed the formation, they copied the incorrect pattern printed in a book. </span></p>
+<p><span style="color: #ffffff;">Alternatively, I may have converted the original pulses by mapping left to right when converting into a 23&#215;73 grid, instead of going from right to left &#8211; which personally doesn&#8217;t seem correct to my interpretation of the original binary sequence.</span><br />
+<span style="color: #ffffff;">If anyone can explain this discrepancy, I would love to hear your comments. However, for the purposes of the rest of this article I shall refer to the pattern physically laid in the crop field. The results are the same because the actual code remains unchanged irrespective of whether it&#8217;s the original or a mirror image anyway &#8211; as the binary coding remains unaltered.</span></p>
+<p><span style="color: #ffffff;">Decoding the original message</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The original message was comprised of several &#8216;sections&#8217;, each depicting a particular aspect of &#8216;our civilisation&#8217;. At the top are binary representations of the numbers one through to ten, interestingly showing the numbers eight, nine and ten as two columns. This shows anyone decoding the message that we can specify that numbers too large to be written on a single line can be &#8216;carried over&#8217;.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The next section contains the binary values 1,6,7,8 and 15 which indicate the atomic numbers of the primary elements for life on Earth; Hydrogen, Carbon, Nitrogen, Oxygen and Phosphorus respectively.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/decrypt+our+message.gif" alt="" /></span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Arecibo+dish.jpg" alt="" /></span></p>
+<p><span style="color: #ffffff;">The larger section of three rows, represents the formulas for the sugars and bases in the nucleotides of DNA. Beneath this is a graphical representation of our DNA &#8216;double helix&#8217; either side of a &#8216;straight vertical bar&#8217; which indicates the number of nucleotides in DNA.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">Directly below the DNA double helix is a small representation of us &#8211; humans &#8211; with a body and two arms and two legs (like a little stick man). On the left is a binary value of the population of Earth. This can be calculated as roughly 4.29 billion, which is roughly the population of the world, back in 1974. On the right of the humanoid form is a binary code for the height of humans.</span></p>
+<p><span style="color: #ffffff;">Because we cannot communicate in &#8216;human&#8217; measurements (such as feet and inches) the height is represented in &#8216;wavelength units&#8217;. As mentioned earlier, the actual message was transmitted on 2380MHz. To convert this into a wavelength we divide into 300, to obtain a wavelength in metres. 300/2380 = 0.12605042m = 12.6cm. This is our &#8216;wavelength unit&#8217;.</span></p>
+<p><span style="color: #ffffff;">From the code for the height of a human, we can see that the value is 1110 in binary, or 14 in decimal. If we multiply 14 by our wavelength unit (12.6) we get 176.4cm, or roughly 5&#8217;9&#8243; &#8211; the average height of humans.</span></p>
+<p><span style="color: #ffffff;">The next section is a simplified representation of our Solar System &#8211; where we live. It shows the sun and nine planets, roughly representative of size. By moving the third planet up slightly it highlights that something is significant about the third planet from the sun &#8211; Earth.</span><br />
+<span style="color: #ffffff;">The last section depicts the origin of the message itself &#8211; the Arecibo radio telescope, which is the curved structure. Underneath this, as the last two lines of the message, is another binary number. This time it&#8217;s 100101111110 (split onto two lines in the centre) and equates to 2430 in decimal. Again, using our universal &#8216;wavelength units&#8217; we get 2430*12.6cm which is 30618cm &#8211; or approx 1000&#8242;, the diameter of the Arecibo radio dish.</span></p>
+<p><span style="color: #ffffff;"><strong>Differences between the message sent in 1974 and the one received in 2001</strong></span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Arecibo+%2528both%2529.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">What&#8217;s different in the Crop Formation?</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/zz+arecibo+22.jpg" alt="" /></span></p>
+<p><span style="color: #ffffff;">After extensive analysis I have discovered nine major discrepancies between what we see in the crop field at Chilbolton and the original message that we transmitted to the stars in 1974. I shall leave any interpretation until later, but for now just highlight the differences. The exact detail of these changes couldn&#8217;t be confirmed until I actually visited the formation on the ground, in order to accurately check the binary code &#8211; reading flattened crop as a 0 and standing crop squares as 1&#8217;s.</span></p>
+<p><span style="color: #ffffff;">Rather than point out the differences in order of importance or anything, I shall merely start at the top of the pattern and work downwards.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The numbers 1 to 10 appear exactly the same in the formation.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">However the atomic numbers indicating the prevalent elements making up life on Earth, has an additional value inserted into the binary sequence. This is precisely added in the correct location, and in the original binary code (therefore it can&#8217;t be a mistake). Decoding from the crop formation, this additional element has an atomic number of 14 = Silicon.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">Moving down, the next change is an obvious one &#8211; consisting of an extra strand on the left side of the DNA double-helix. Another, less obvious, change is in the binary coding of the number of nucleotides in DNA itself (in the center). If you look in the diagram above, I&#8217;ve highlighted the changes more accurately on the right, by using red squares and outlines to indicate which &#8216;digits&#8217; have been changed in the crop formation.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/final+conclussion.jpg" alt="" /></span></p>
+<p><span style="color: #ffffff;">There are quite significant changes to the shape of the humanoid, which becomes almost &#8216;alien-like&#8217; and to the diagram of the Arecibo dish. For clarity, I&#8217;ve not bothered going over these in red because the differences are easily apparent.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">Either side of what is now an ET, there are changes to both the &#8216;population&#8217; figure and also the height value. The latter is now 1000 in binary, or 8. If we multiply this by the original &#8216;wavelength unit&#8217; we get 8*12.6cm = 100.8cm which is roughly 3&#8217;4&#8243; &#8211; interesting, because this would correlate with ET witness accounts.</span></p>
+<p><span style="color: #ffffff;">Below this we notice additional changes to the Solar System chart. The third planet from the sun is not the only one &#8216;highlighted&#8217; now. The fourth and fifth are as well. The fifth even appears to be emphasised even more, with three additional &#8216;pixels&#8217;.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">Lastly, what was representative of the Arecibo transmitter in the original message is even more cryptic and would imply a diagrammatic version of the formation which appeared in the same field at Chilbolton last year, in 2000. This can be viewed in my database, reference <a style="color: #ffffff;" href="http://ccdb.cropcircleresearch.com/?d=x&amp;y=&amp;m=any&amp;c=UK&amp;l=&amp;k=uk2000ee">uk2000ee</a>.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The binary code for the size of the transmitter is also altered. I&#8217;ll leave the reader to work out the new value.</span></p>
+<p><span style="color: #ffffff;">What does it all mean?</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Arecibo+Correlations.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">Almost exactly one year prior to this message, in the same crop, this formation appeared:</span></p>
+<div class="separator"><span style="color: #ffffff;"><a style="color: #ffffff;" href="http://2.bp.blogspot.com/_u3D7kCdnYZs/TVLJmt4qVXI/AAAAAAAAAzg/x5W_K7cpjsQ/s1600/chil+02.jpg"><img src="/sos/img/chil+02.jpg" alt="" width="462" height="640" border="0" /></a></span></div>
+<p><center><span style="color: #ffffff;">This is clearly a representation of their &#8220;telescope&#8221;, as depicted in the 2001 message.</span></center></p>
+<ol>
+<li><span style="color: #ffffff;"><strong>Gray Extraterrestrial holding a disc</strong></span></li>
+<li></li>
+</ol>
+<p><span style="color: #ffffff;"><img src="/sos/img/zzeta.jpg" alt="" /></span></p>
+<p><center></center><span style="color: #ffffff;">Sparsholt, Hampshire, England. August 21<sup>st</sup>, 2002.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/colorized+alien.jpg" alt="" /></span><br />
+<span style="color: #ffffff;">The message within the disk was deciphered using the standard 8 bit binary code known as ASCII (<em>American Standard Code for Information Interchange)</em>.  The cipher starts at the center of the disk and spirals outward counter-clockwise, this is also the same read pattern that a compact disc or DVD uses. </span></p>
+<p>&nbsp;</p>
+<div><span style="color: #ffffff;"><strong><span class="apple-style-span">Example of how lasers read CDs/DVDs:</span></strong></span></div>
+<div><span style="color: #ffffff;"><img src="/sos/img/Laser+cd-dvd.gif" alt="" /></span></div>
+<div>
+<div><span style="color: #ffffff;"><strong><span class="apple-style-span">Decoding the Message:</span></strong></span></div>
+<div><span style="color: #ffffff;"><img src="/sos/img/Decoding+Alien+M.jpg" alt="" /></span></div>
+<div><span style="color: #ffffff;">One more example:</span></div>
+<div><span style="color: #ffffff;"><img src="/sos/img/decoded+02.png" alt="" /></span></div>
+<div>
+<p><span style="color: #ffffff;"><strong>III. The Message Translated:</strong></span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/zz+alien_disk1.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">The empty spaces represent the binary number of ZERO and the blocks represent the binary number ONE.  Using this cipher we get the following message: </span></p>
+<p><span style="color: #ff0000;"><strong>&#8220;Beware the bearers of false gifts and their broken promises.<br />
+Much pain, but still time. Believe there is good out there.<br />
+We oppose deception. Conduit closing. 0x07&#8221; </strong></span></p>
+<p><span style="color: #ffffff;">The binary code of 0x07 at the end of the message would produced a bell sound similar to that of an old typewriter / bell sound (Example: DING!).</span></p>
+<p><span style="color: #ffffff;">Exact Construction: </span><br />
+<strong><br />
+</strong></p>
+<p><span style="color: #ff0000;">(A) Beware the bearers of FALSE gifts &amp; their BROKEN PROMISES.</span></p>
+<p><span style="color: #ff0000;">(B) Much PAIN but still time.BELIEVE.</span></p>
+<p><span style="color: #ff0000;">(C) There is GOOD out there.We OPpose DECEPTION.</span></p>
+<p><span style="color: #ff0000;">Conduit CLOSING (Ding!)</span></p>
+<p><span style="color: #ffffff;">Is this a friendly message from benevolent beings?</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">The message sounds friendly enough and it&#8217;s just what we want to hear. But personally, I&#8217;m almost certain that this is a deception, and you will see why. </span></p>
+<p><span style="color: #ffffff;">Those who study or already are in contact with extraterrestrials (or other benevolent beings), know that our Government collaborates with a malevolent specie of grays which we know as Zeta Reticulans or Reticulans (they inhabit a binary solar system known as Zeta Reticuli).</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Zeta+Reticuli.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">The Reticulans and the Alpha Draconians (commonly known as Reptilians) have been in contact with our Governments for ages. </span></p>
+<p><span style="color: #ffffff;">The Reticulans are responsible for all the abductions and mutilations (both human and animal), while the Reptilians are those behind our leaders. They are using our Governments to control and enslave our species.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">If you are familiar with my work, you know that almost all my history lessons are connected to the Reptilians and their control over the human species. </span></p>
+<p><span style="color: #ffffff;">There are also two prominent constellations mentioned by our ancestors, and most of the times they are connected to the extraterrestrial &#8220;gods&#8221;: The Pleiades and Orion&#8217;s Belt. Even more interesting, the Illuminati are literally obsessed with these two constellations and what they represent.</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Orion%2527s+belt.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">The Orion&#8217;s Belt is composed of 3 Stars. Two of them are aligned, while the third is a little offset.<i>Image from Google Sky 2011, showing a picture from 2007</i>).</span></p>
+<h2><span style="color: #ffffff;"><strong>Now back to our crop formation picture:</strong></span></h2>
+<p><span style="color: #ffffff;"><img src="/sos/img/Crabwood+Alien+Crop+Circle.jpg" alt="" /></span></p>
+<p><span style="color: #ffffff;"><strong>Notice anything strange? How about the three Stars behind the Alien? They look like Orion&#8217;s belt, but do they match its alignment?</strong></span></p>
+<p><span style="color: #ffffff;"> </span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Orion%2527s+Belt+Gray+Alien.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">As you can see it&#8217;s a perfect match. But what does this mean? Are the alien visitors positive beings from/around the Orion Constellation or is this a malevolent trademark?</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ffffff;">It&#8217;s not easy to draw a safe conclusion, but my instinct says this is another deception. Why would a benevolent specie want to connect a peaceful message to Orion&#8217;s Belt?</span></p>
+<p><span style="color: #ffffff;">The elites know it is just a matter of time until they will have to disclose the existence of extraterrestrials. But they have one more trick in their sleeves! They plan to present those who enslaved us for generations, as our saviors: the Reticulans and the Reptilians. </span></p>
+<p><span style="color: #ffffff;">The greatest killers and deceivers are always presented as heroes, while the real heroes die in obscurity. Exactly the same will happen regarding the alien beings. Our enslavers will be presented as heroes, while the benevolent beings will be presented as our enemies.</span></p>
+<p><span style="color: #ffffff;"><strong>Few years ago an ancient painting was found in a cave in Uzbekistan:</strong></span></p>
+<p><span style="color: #ffffff;"> </span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Cave+Painting+01.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">A flying disc is clearly noticeable and bellow it an extraterrestrial being. The ET walks on a black &amp; white floor, one of the most prominent Illuminati signs. In the foreground we can see an astronaut with broken helmet (or some kind of beast?). </span></p>
+<p><span style="color: #ffffff;">The astronaut/beast is holding a similar disc in his left hand. Maybe the painter had a vision about the upcoming events? Is the cave painting presenting an apocalyptic scenario?</span></p>
+<p><span style="color: #ffffff;"><img src="/sos/img/Cave+painting+02.png" alt="" /></span></p>
+<p><span style="color: #ffffff;">If the character in the foreground is an astronaut with a broken helmet, then his head is being sucked out through the hole. May this represent a planet without an atmosphere? The ET in the background also seems to be wearing some kind of helmet.</span></p>
+<p><span style="color: #ffffff;">We can also see sings of destruction and a large planet in the sky (about three times bigger than the Sun).</span><br />
+<span style="color: #ffffff;">Only time will tell the truth. In the meanwhile, please be careful what you believe!</span></p>
+<p><span style="color: #ffffff;">Stay balanced and loving and you will always find the true path.</span></p>
+</div>
+</div>
+<p>&nbsp;</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

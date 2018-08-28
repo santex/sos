@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>SOS</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <script src="js/vendor/custom.modernizr.js"></script>
+  <style type="text/css">
+    span.token.good {
+      color: blue;
+    }
+    span.token.bad {
+      color: red;
+    }
+    .hidden {display:none;}
+    fieldset {width:45%;}
+    .half {width:50%;}
+    .right{align:right;display:inline;}
+    .left{align:left;display:inline;}
+  </style>
+</head>
+<body>
+
+  <div class="row hidden">
+    <div class="large-12 columns">
+      <h2></h2>
+      <p></p>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <form class="custom">
+        <fieldset id="data"   class="hidden">
+          <legend>Participant</legend>
+          <div class="row hidden">
+            <div class="large-12 columns">
+              <p>For some of the sessions some additional information is needed.  This information is not transmitted to nor stored on the server.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="callsign">Your call sign:</label>
+              <input type="text" id="callsign" placeholder="For session 11 onwards"/>
+            </div>
+            <div class="large-4 columns">
+              <label for="state">Your town/city and state abbreviation:</label>
+              <input type="text" id="state" placeholder="For session 11"/>
+            </div>
+            <div class="large-4 columns">
+              <label for="name">Your name:</label>
+              <input type="text" id="name" placeholder="For session 11"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="age">Your age:</label>
+              <input type="text" id="age" placeholder="For session 12"/>
+            </div>
+            <div class="large-4 columns">
+              <label for="power">Your power:</label>
+              <input type="text" id="power" placeholder="For session 12"/>
+            </div>
+            <div class="large-4 columns">
+              <label for="antenna">Your antenna:</label>
+              <input type="text" id="antenna" placeholder="For session 12"/>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="large-9 columns ">
+      <form class="custom">
+        <fieldset id="session" class="hidden">
+          <legend>Session</legend>
+          <div class="row">
+            <div class="large-12 columns">
+              <p>Choose your session and then practise the copying and sending segments.</p>
+              <a href="javascript: void(0);" class="button prev">Previous</a>
+              <span class="button fraction secondary">Session <span class="top"></span>/<span class="bot"></span></span>
+              <a href="javascript: void(0);" class="button next">Next</a>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="copying" class="hidden">
+          <legend>Copying</legend>
+          <div class="row">
+            <div class="large-12 columns">
+              <p>Play each of these segments again and again until you feel you recognise the sound pattern.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns panel">
+              <p class="message">Text to copy</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <a href="javascript: void(0);" class="button prev">Previous</a>
+              <span class="button fraction secondary">Segment <span class="top"></span>/<span class="bot"></span></span>
+              <a href="javascript: void(0);" class="button next">Next</a>
+              <a href="javascript: void(0);" class="button play">Play</a>
+              <a href="javascript: void(0);" class="button stop">Stop</a>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="sending" class="hidden">
+          <legend>Sending</legend>
+          <div class="row">
+            <div class="large-12 columns">
+              <p>Play a segment, then try to imitate it, exactly, using your key or keyer.  Repeat it as many times as it takes to feel that you’ve got the correct word pattern.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns panel">
+              <p class="message">Text to send</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <a href="javascript: void(0);" class="button prev">Previous</a>
+              <span class="button fraction secondary">Segment <span class="top"></span>/<span class="bot"></span></span>
+              <a href="javascript: void(0);" class="button next">Next</a>
+              <a href="javascript: void(0);" class="button play">Play</a>
+              <a href="javascript: void(0);" class="button stop">Stop</a>
+            </div>
+          </div>
+        </fieldset>
+    </div>
+
+    <div class="large-3 columns">
+        <fieldset class="right">
+          <legend>Sound Controls</legend>
+          <label for="volume">Volume <span data-tooltip aria-haspopup="true" class="has-tip" title="Probably best to use your computer's volume control...">(?)</span></label>
+          <input size="5" type="text" id="volume" value="0.05"/>
+          <label for="pitch">Pitch / Hz <span data-tooltip aria-haspopup="true" class="has-tip" title="A high number makes a high pitch. 700 is a good value.">(?)</span></label>
+          <input size="5" type="text" id="pitch" value="700"/>
+          <label for="wpm">Speed / wpm <span data-tooltip aria-haspopup="true" class="has-tip" title="The speed in words per minute, taking 'PARIS' as the standard word.">(?)</span></label>
+          <input size="5" type="text" id="wpm" name="wpm" value="30" onBlur="javascript:tieSpeeds()"/>
+          <label for="fwpm">Farnsworth Speed / wpm <span data-tooltip aria-haspopup="true" class="has-tip" title="The Farnsworth speed slows down the space between letters and words, making it easier to learn Morse. It should be a lower value than the speed.">(?)</span></label>
+          <input size="5" type="text" id="fwpm" name="fwpm" value="30" onBlur="javascript:tieSpeeds()"/>
+          <input type="checkbox" checked id="useprosigns" name="useprosigns"/>
+          <label for="useprosigns">Use prosigns <span data-tooltip aria-haspopup="true" class="has-tip" title="Prosigns are a sort of Morse code shorthand, written e.g. < BT >">(?)</span></label>
+
+
+        </fieldset>
+
+
+      <fieldset id="freeform" class="left">
+          <legend>Message</legend>
+          <div class="row hidden">
+            <div class="large-12 columns">
+              <p>If you need to practise any other sequences then enter them below. If you want to use prosigns then enclose them with angle-brackets (e.g. &quot;&lt;bk&gt;&quot;) and tick the box in the sound controls.</p>
+            </div>
+          </div>
+          <div class="half">
+                <input id="fmessage" type="text" placeholder="Type your free-form text here" />
+
+              <a href="javascript: void(0);" class="button play">Play</a>
+              <a href="javascript: void(0);" class="button stop">Stop</a>
+
+              <textarea id="bin_data"></textarea>
+          </div>
+
+        </fieldset>
+      </form>
+
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <fieldset id="paypal"   class="hidden">
+          <legend>Donate</legend>
+          <p>If you find this software useful, please make a small donation to the author.</p>
+          <p><em>Thank you!</em></p>
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="">
+          <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+          <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="row hidden">
+    <div class="large-12 columns hidden">
+      <h4>Notes</h4>
+
+    </div>
+  </div>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation/foundation.js"></script>
+  <script src="js/foundation/foundation.tooltip.js"></script>
+
+  <script>
+  $(document).foundation();
+  </script>
+
+  <script type="text/javascript" src="js/audio/resampler.js"></script>
+  <script type="text/javascript" src="js/audio/swfobject.js"></script>
+  <script type="text/javascript" src="js/audio/XAudioServer.js"></script>
+  <script type="text/javascript" src="js/morse.js"></script>
+  <script type="text/javascript" src="js/sessions2.js"></script>
+  <script type="text/javascript" src="js/trainer.js"></script>
+</body>
+</html>
