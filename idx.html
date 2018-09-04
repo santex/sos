@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width">
   <title>SOS</title>
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/foundation.css">
   <script src="js/vendor/custom.modernizr.js"></script>
   <style type="text/css">
     span.token.good {
@@ -137,7 +138,7 @@
     </div>
 
     <div class="large-3 columns">
-        <fieldset class="right">
+<br>        <fieldset class="right">
           <legend>Sound Controls</legend>
           <label for="volume">Volume <span data-tooltip aria-haspopup="true" class="has-tip" title="Probably best to use your computer's volume control...">(?)</span></label>
           <input size="5" type="text" id="volume" value="0.05"/>
@@ -152,24 +153,27 @@
 
 
         </fieldset>
+      </div>
 
+    <div class="large-3 columns">
 
       <fieldset id="freeform" class="left">
+
           <legend>Message</legend>
           <div class="row hidden">
             <div class="large-12 columns">
               <p>If you need to practise any other sequences then enter them below. If you want to use prosigns then enclose them with angle-brackets (e.g. &quot;&lt;bk&gt;&quot;) and tick the box in the sound controls.</p>
             </div>
           </div>
-          <div class="half">
+          <div class="left">
                 <input id="fmessage" type="text" placeholder="Type your free-form text here" />
-
+<br>
               <a href="javascript: void(0);" class="button play">Play</a>
               <a href="javascript: void(0);" class="button stop">Stop</a>
 
-              <textarea id="bin_data"></textarea>
           </div>
-
+<div class="right">          <textarea id="bin_data"></textarea>
+    </div>
         </fieldset>
       </form>
 
