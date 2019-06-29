@@ -1,0 +1,883 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./CSS/jquery-ui.css" />
+  <link href="./CSS/main.css" rel="stylesheet" type="text/css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="./JQ/jquery.ui.touch-punch.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0077aa">
+
+  <!-- Social -->
+  <LINK REL="image_src" href="Pix/socialPreview.jpg" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@multistagecorre">
+  <meta name="twitter:title" content="The Ultimate Brainwave Generator">
+  <meta name="twitter:description" content="What Are Brainwaves? Does Entrainement Work? Find out for yourself. Online & Free.">
+  <meta name="twitter:image:src" content="socialPreview.jpg">
+</head>
+
+<body onload="init()">
+
+  <!-- GA -->
+  <script>
+
+  </script>
+
+<div class="slide">
+</div>
+<div class="tile1">
+    <div class="corner-ribbon" onclick="toURL(1)">Now with .wav download</div>
+
+<div class="ctrSection">
+    <img src="./Pix/mute.png" class="ctrlImg" id="mute" onclick="muteOutput()" onmouseover="msg('Muting the Audio Output')" alt="">
+    <img src="./Pix/link.png" class="ctrlImg" onclick="toURL()" onmouseover="msg('Save or Share current settings in a custom URL')" alt="">
+    <img src="./Pix/wav.png" class="ctrlImg" onclick="toURL(1)" onmouseover="msg('Generate a high quality standalone audio file')" alt="">
+    <img src="./Pix/alien.png" class="ctrlImg" onclick="newSet('anything')" onmouseover="msg('Anything can happen! (Randomize)')" alt="">
+</div>
+
+
+<div class="group black">
+    <div class="sliderGroup"><span class="label black">brainwave</span><div id="mod"></div><input type="text" id="modval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderMod(this.value);"></div>
+    </div>
+    <span class="black">&darr;</span>
+    <div class="group white">
+    <div class="sliderGroup"><span class="label black">a-mod</span><div id="isochronic"></div><input type="text" id="isoval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderIso(this.value);"></div>
+    <div class="sliderGroup"><span class="label black">binaural</span><div id="binaural"></div><input type="text" id="binval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderBin(this.value);"></div>
+    <div class="sliderGroup"><span class="label black">stereo</span><div id="bilateral"></div><input type="text" id="bilval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderBil(this.value);"></div>
+    <div class="sliderGroup"><span class="label black">f-mod</span><div id="fm"></div><input type="text" id="fmval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderFm(this.value);"></div>
+    </div>
+    <span class="white">&uarr;</span>
+    <div class="group white">
+    <div class="sliderGroup"><span class="label white">carrier</span><div id="carrier"></div><input type="text" id="carval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderCar(this.value);"></div>
+    <div class="sliderGroup"><span class="label white">noise</span><div id="noise"></div><input type="text" id="noiseval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderNoise(this.value);"></div>
+    </div>
+    &nbsp;
+    <div class="group white">
+    <div class="sliderGroup"><span class="label black">mix level</span><div id="level"></div><input type="text" id="levval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderLvl(this.value);"></div>
+</div>
+
+<div class="ctrSection">
+    <img src="./Pix/1.png" id="g0" class="selImg" onclick="setG(0)" onmouseover="msg('Edit Generator 1')" alt="">
+    <img src="./Pix/2.png" id="g1" class="selImg" onclick="setG(1)" onmouseover="msg('Edit Generator 2')" alt="">
+    <img src="./Pix/3.png" id="g2" class="selImg" onclick="setG(2)" onmouseover="msg('Edit Generator 3')" alt="">
+    <img src="./Pix/4.png" id="g3" class="selImg" onclick="setG(3)" onmouseover="msg('Edit Generator 4')" alt="">
+    <img src="./Pix/5.png" id="g4" class="selImg" onclick="setG(4)" onmouseover="msg('Edit Generator 5')" alt="">
+    <img src="./Pix/multi.png" id="gm" class="selImg" onclick="setG('m')" onmouseover="msg('Multi Edit')" alt="">
+</div>
+
+<div id="msg">Interactive Text Display</div>
+
+<div class="ctrSection">
+        <img src="./Pix/sleep.png" class="ctrlImg" onclick="newSet('sleep')" onmouseover="msg('Brainwaves for <b class=\'mod\'>Deep Sleep</b>')" alt="">
+        <img src="./Pix/dream.png" class="ctrlImg" onclick="newSet('dream')" onmouseover="msg('Brainwaves for <b class=\'mod\'>Dream</b>')" alt="">
+        <img src="./Pix/creative.png" class="ctrlImg" onclick="newSet('creative')" onmouseover="msg('Brainwaves for <b class=\'mod\'>Creativity</b>')" alt="">
+        <img src="./Pix/relax.png" class="ctrlImg" onclick="newSet('relax')" onmouseover="msg('Brainwaves for <b class=\'mod\'>Relaxation</b>')" alt="">
+        <img src="./Pix/productivity.png" class="ctrlImg" onclick="newSet('productivity')" onmouseover="msg('Brainwaves for <b class=\'mod\'>Productivity</b>')" alt="">
+        <img src="./Pix/alert.png" class="ctrlImg" onclick="newSet('alert')" onmouseover="msg('Brainwaves for <b class=\'mod\'>Focus</b>')" alt="">
+        <br>
+        <img src="./Pix/headphones.png" class="ctrlImg" onclick="newSet('headphones')" onmouseover="msg('Carrier & Mods for <b class=\'mod\'>Headphones</b>')" alt="">
+        <img src="./Pix/mobile.png" class="ctrlImg" onclick="newSet('mobile')" onmouseover="msg('Carrier & Mods for <b class=\'mod\'>Miniature Speakers</b>')" alt="">
+        <img src="./Pix/speaker1.png" class="ctrlImg" onclick="newSet('speaker1')" onmouseover="msg('Carrier & Mods for <b class=\'mod\'>Single Speakers</b>')" alt="">
+        <img src="./Pix/speaker2.png" class="ctrlImg" onclick="newSet('speaker2')" onmouseover="msg('Carrier & Mods for <b class=\'mod\'>Sterophonic Speakers</b>')" alt="">
+        <img src="./Pix/sub.png" class="ctrlImg" onclick="newSet('sub')" onmouseover="msg('Carrier & Mods for <b class=\'mod\'>Subwoofer</b>')" alt="">
+        <img src="./Pix/hearing.png" class="ctrlImg" onclick="newSet('hearing')" onmouseover="msg('Retrain your <b class=\'mod\'>Hearing</b>!')" alt="">
+</div>
+
+<div id="radioTouch"></div></div>
+
+<div class="tile2">
+  <div class="section">
+<h1>Welcome</h1>
+<p>
+Welcome to the most powerful brainwave entrainment generator on the web. Don't be fooled by its relatively simple user interface. This software is capable of producing the widest range of brainwave modulations available so far, such as  <span class="highlight">binaural beats</span>,  <span class="highlight">isochronic tones</span>,  <span class="highlight">bilateral entrainment</span>, <span class="highlight">modulated white noise</span>, and more! If you are eager to start your own brain hacking experiments, the rest of this section covers the basics: the minimum you should know to make sense of the sliders above. If you are interested in further understanding what brainwave entrainment is, more information follows!</p>
+<p>
+<span class="highlight">Brainwaves</span> are not pseudo-science: they exist. Brainwaves are a by-product of our brain's activity and packs of neurons communicating with each other. These brainwaves fall into different groups, depending on their frequency and their location in the brain. These groups have been linked to various body states, such as being alert, relaxed, or sleepy. Brainwaves are not audible: they are not sound waves, and even if they were, their frequencies would fall way below our audible range.</p>
+<p>
+By using a stimulus at a given frequency, brainwave entrainment aims at synchronizing the brain with that frequency and inducing a given state such as drowsiness or focus. The stimulus could be anything, e.g. visual. This website uses auditory stimuli. Since the brainwave frequencies are not in the audible range, a trick is needed to convert the frequency we want to impose on our brain into something that is audible. The trick consists of selecting a frequency that we hear - we call it a <span class="highlight">carrier</span> - then modulating this carrier with the brainwave frequency one wants to make audible. This website offers four <span class="highlight">modulators</span> that can be used separately or combined: amplitude modulation (monaural modulation), binaural beats, stereophonic panning (bilateral modulation) and frequency modulation.</p>
+<p>
+That's it! You can start using our online brainwave tool now. Choose a particular brainwave frequency, a carrier, and then apply some modulation. Tweak the settings until you hit a sweet spot. Let it flow for a couple of minutes at moderate level. Then ask yourself how you feel. Calmer? Focused? Sleepy? Alert? Annoyed by the sound? That is possible too ;-) Everything is possible!</p>
+<p>
+We allow up to five different brainwaves frequencies (1-5) to be mixed together to create complex entrainment routines. If you are new to brainwave entrainment, start using a single brainwave first.</p>
+
+</div>
+
+<div class="section">
+<h1 class="brw">Brainwaves</h1>
+<p>
+The brain is an electrochemical organ. Though its electrical power is very limited, its electrical activity can be recorded using sensitive electrodes such as those used during an electroencephalogram. Hans Berger was the first man to measure such activity, about 80 years ago. Berger's goal was to show that the electromagnetic fields of the human brain could be used for telepathy at that time, but he didn't succeed. However, during his research, Berger found prominent waves around 10 cycles per second. He named them alpha, as these were the first that were detected. Later, he found another family of waves of a higher frequency, which he called beta. Berger discovered that alpha waves diminished during sleep, while beta waves were related to mental concentration. After they were confirmed by many other scientists, these waves became the basis for detecting the different states associated with our brain. With the progress of scientific research and technology, additional brainwaves have been isolated since then. These were categorized according to their frequencies and where they occur in the brain. Here we will only talk about the frequencies since this is of most interest for brainwave entrainment.
+</p>
+
+<p>&bull; <span class="highlight">Delta</span> waves are the slowest, with frequencies below 4 cycles per second [Hz]. They occur when sleeping, mostly in the deep – dreamless – state.</p>
+
+<p>&bull; <span class="highlight">Theta</span> waves are characterized by frequencies between 4 and 8 Hz. They are associated with drowsiness. They occur in that twilight state when we drift off to sleep, or slowly wake up, and when we are dreaming.</p>
+
+<p>&bull; <span class="highlight">Alpha</span> waves are in the frequency range of 8 - 12 Hz. These are the waves discovered by Berger, and are sometimes named after him (Berger's waves). They are associated with the awake but relaxed state: think being at rest, with your eyes closed, but not tired or asleep.</p>
+
+<p>&bull; <span class="highlight">Beta</span> waves are even higher in frequency range, between 12 - 30 Hz. They are associated with active thinking and concentration. </p>
+
+<p>&bull; <span class="highlight">Gamma</span> waves are the fastest, with frequencies above 30Hz. They show up in the higher cortex, during working memory and learning.</p>
+
+<p>The descriptions made above are simplified views of what happens in reality. First, the brain does not operate on one frequency range at any given time. Second, these bands are actually overlapping. It is impossible to put precise boundaries between them: though at 9 Hz, you are likely to be in an alpha state, it is possible you are still in theta. The frequency ranges associated with the different states also vary across studies. Lastly, every human brain is different!</p>
+
+</div>
+
+<div class="section">
+<h1 class="car">Carrier</h1>
+<p>
+There is no audible sound below 20 Hz. Between 20 Hz and 40 Hz, you will need a very large loudspeaker - a subwoofer - to produce a sound you can hear. Since brainwaves are very low in frequencies, it's not possible to play these waves as a sound, directly. Either the sound will be inaudible, or it won't come through your speaker.</p>
+<p>The trick is to use a carrier. In most cases, the carrier is a <span class="highlight">sine wave</span> whose frequency is reproducible by your speaker and within the audible range. The frequency of the carrier can be freely chosen, and is independent of the brainwave frequency that needs to be turned into sound. Opt for a carrier that produces a sweet tone to your ear, and that plays nicely through the speakers you use. Choose something you like listening to at low or moderate level. <span class="highlight">Noise</span> can be used as a carrier too. We offer both options.</p>
+<p>Turning the brainwave frequency into sound consists of modulating the carrier at a frequency equal to the brainwave. In other words, you will add some motion to the carrier that will be synchronized to the brainwave frequency of interest. The carrier is the medium. The modulation is the information to be carried to the brain. Putting the carrier into motion is achieved through the modulators, described next.
+</p>
+</div>
+
+<div class="section">
+<h1 class="mod">Modulators</h1>
+<p>We are providing four different modulation schemes. You can use them separately, or mix them to your liking. </p>
+<p>&bull; <span class="highlight">Amplitude</span> modulation modulates the level of the carrier. Used on its own, it creates the so called isochronic tones, or monaural beats. Isochronic tones produce strong beats, and are recommended when you work with a single loudspeaker.</p>
+<p>&bull; <span class="highlight">Binaural</span> modulation only works in headphones, and splits the carrier into two pure tones sent to each ear. These carriers are detuned by an amount equal to the modulation rate. This detuning creates faint beating inside your head. Compared to amplitude modulation, the beating is much weaker, and is best audible with a low carrier frequency. Since the beating is a sort of illusion created in your brain, people find binaural beats to be very effective though they aren't much audible.  </p>
+<p>&bull; <span class="highlight">Stereo</span> modulation, modulates the panning of the carrier in the stereophonic space. For this to work, you need to use two speakers – left and right channels – or headphones. This modulation scheme is the one used to produce the so-called bilateral beats. </p>
+<p>&bull; <span class="highlight">Frequency</span> modulation modulates the frequency of the carrier around its center frequency. Frequency modulation is seldom used in brainwave entrainment programs, though it probably produces the most pronounced audible effect. Like amplitude modulation, it works fine when you have only one speaker on hand.
+</p>
+<p>Rest assured, you don't need to understand how each modulator works. You can tweak the sliders to your liking, without much understanding of what you're doing. What is important is to hear the brainwave frequency modulating the carrier frequency. If the carrier produces a 'weeeeeeeeeee', adjust the sliders until it produces a 'weeEEeeEEeeEE".
+</div>
+
+<div class="section">
+<h1>Brainwave Entrainment</h1>
+<p>
+The brainwave entrainment - or brainwave synchronization - refers to the capacity of the brain to naturally synchronize its brainwave frequencies with the rhythm of a periodic external stimulus, such as the sounds this website produces. <em>Does it effectively work?</em> It is hard to tell. It is a very popular technique though. If it didn't work at all, there wouldn't be such keen interest around brainwave entrainment, and binaural beats in particular. Some people even call these 'digital drugs'!
+</p>
+
+<p>As a scientist, I make a point of not making any false claim on this website. To the question, "Does Brainwave entrainment effectively work?", I can tell you that it works well enough for another page of mine – <a href="https://mynoise.net/NoiseMachines/binauralBrainwaveGenerator.php">myNoise Binaural Beats</a> – to be successful, and to generate a lot of traffic and feedback. That feedback spawned the creation of this site, Brainaural - a more efficient version of what is offered at myNoise. So, it could be that brainwave entrainment indeed works as advertised. Or, it could be a placebo, but then, a powerful one. Placebo is scientifically proven to an extremely high degree. Still, we don't know how it works yet, but it exists. It is certainly a bizarre effect, capable of surprising results, and a fantastic therapeutic tool. I love two strange facts about placebo. Did you know that you can get side effects from a placebo? It's called "nocebo". The second surprise is that placebo works even when you know it's a placebo. This phenomenon has been highlighted by recent scientific research (<a href=" http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0015591">one example</a> among others).</p>
+<p>
+Regarding brainwave entrainment itself, there is no clear consensus among scientific papers. Some papers are positive  (an example <a href="http://www.sciencedirect.com/science/article/pii/S0031938497004368">here</a>) - others aren't  (an example <a href="http://www.sciencedirect.com/science/article/pii/S0167876012006241">here</a>). We are still in a kind of no man's land. </p>
+<p>Beware, brainwave entrainment offered on the internet are often built around big claims and high prices. With this website, I want to offer a quality alternative to scammers. This generator is not only free, but encourages you to experiment and draw your own conclusions on the effectiveness of brainwave entrainment. You only need a computer and a speaker, though headphones are preferred.
+</p>
+<p>In the future, it is my intention to give more interactivity, allowing users to share their preferred settings, and others to confirm the effect of these settings in the context of a given application. Once this website drives enough traffic, I'd love to put brainwaves entrainment theory to the test!
+</p>
+<p>Remember, the brain never operates in a single mode. Feel free to combine multiple generators, to further experiment the combination of brainwaves. You can mix up to five different brainwaves from a single player. You can always open a new player in a new window to keep experimenting with even higher complexity!
+</div>
+
+<div class="section">
+<h1>Hearing Retraining</h1>
+<p>As we get older, our sensitivity toward the higher frequencies decreases. This phenomenon is called age-related hearing loss or presbycusis. Some theories state that we can re-train the ear by listening to these missing frequencies. A recent experiment on <a href="https://mynoise.net">myNoise</a> aimed at verifying that theory, with a <a href="https://mynoise.net/NoiseMachines/ultrasonicNoiseGenerator.php">natural sound generator</a> that plays near ultra-sonic frequencies, mainly cicadas and bats. Some users reported that they started to hear frequencies they didn't hear when they first listened to that sound. Listening to this same sound over a couple of days resulted in a better hearing in the higher frequency range, for them.</p>
+<p>Because of these positive reports, I decided to allow Brainaural's carrier frequency to flirt with the highest frequencies of our hearing range, allowing you to retrain the your ears. Try setting the carrier to 14,000 Hz, and frequency modulation (f-mod) to 50%. The resulting signal will be a scan of all frequencies between 7,000 Hz and 21,000 Hz.</p>
+</div>
+  <div class="sectionLast">
+<p>For personal entertainement use only<br>© 2017-2018 <a href="http://stephanepigeon.com" class="white">Dr. Ir. Stéphane Pigeon</a></p>
+</div></div>
+
+
+<div id="fb-root"></div>
+<script>
+
+</script>
+<script>
+</script>
+
+
+<script>
+
+// params
+var TABS=5;
+var G; // current gen
+var MULTI=0;
+var CARRIER=[220,30,150,432,9000]; //Hz
+var FCARMIN=27.5;
+var FMODMIN=0.1;
+var OCTCAR=9;
+var OCTMOD=10;
+var MOD=[1,0.5,1.95,3,0.2]; //Hz
+var ISOCHRONIC=[50,100,0,0,100]; //%
+var BINAURAL=[100,100,100,0,100]; //%
+var BILATERAL=[00,0,0,100,100]; //%
+var FM=[0,100,0,0,100]; //%
+var LEVEL=[50,0,0,0,0]; //%
+var NOISE=[0,0,0,0,0]
+var bWEBAUDIO=0;
+var bIOS=0;
+var bMute=0;
+var msgTimer;
+
+// WEBAUDIO ELEMENTS
+var context;
+var oscL=[];
+var oscR=[];
+var noiseL=[];
+var noiseR=[];
+var lfo=[];
+var lfoHalf=[];
+var gainL=[];
+var gainR=[];
+var merger=[];
+var gainI=[];
+var bilatGain=[];
+var noiseGainL=[];
+var noiseGainR=[];
+var noiseGainRL=[];
+var noiseGainRR=[];
+var filterL=[];
+var filterR=[];
+var oscGainL=[];
+var oscGainR=[];
+var bilatInvertedGain=[];
+var lfoGain=[];
+var fmGain=[];
+var filterGain=[];
+var gainGlobal=[];
+
+
+
+function init() {
+
+  // Startup checks
+
+  // Supports WebAudio?
+  if(typeof webkitAudioContext !== "undefined") bWEBAUDIO=1;
+  if(typeof AudioContext !== "undefined") bWEBAUDIO=1;
+
+  // On Apple table? (requires touch to start)
+  bIOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? 1 : 0 );
+
+  if (bWEBAUDIO) {
+
+
+    if (typeof AudioContext !== 'undefined') context= new AudioContext();
+    else context = new webkitAudioContext();
+
+
+    for (var t=0;t<TABS;t++) {
+
+    // creating oscillators
+    oscL[t]=context.createOscillator();
+    oscL[t].type='sine';
+    oscL[t].frequency.value=CARRIER[t]+MOD[t]/2*BINAURAL[t]/100; // value in hertz
+
+    oscR[t]=context.createOscillator();
+    oscR[t].type='sine';
+    oscR[t].frequency.value=CARRIER[t]-MOD[t]/2*BINAURAL[t]/100; // value in hertz
+
+    lfo[t]=context.createOscillator();
+    lfo[t].type='sine';
+    lfo[t].frequency.value=MOD[t]; // value in hertz
+    lfoHalf[t]=context.createOscillator();
+    lfoHalf[t].type='sine';
+    lfoHalf[t].frequency.value=MOD[t]/2; // value in hertz
+
+    // noises
+
+    var bufferSize = 6 * context.sampleRate,
+      noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate),
+      output = noiseBuffer.getChannelData(0);
+    for (var i = 0; i < bufferSize; i++) {
+      output[i] = 3*(Math.random() * 2 - 1);
+    }
+
+    noiseL[t]=context.createBufferSource();
+    noiseL[t].buffer=noiseBuffer;
+    noiseL[t].loop=true;
+    noiseR[t]=context.createBufferSource();
+    noiseR[t].buffer=noiseBuffer;
+    noiseR[t].loop=true;
+
+    // filters for the noise
+    filterR[t] = context.createBiquadFilter();
+    filterL[t] = context.createBiquadFilter();
+    filterR[t].type = "bandpass";
+    filterR[t].frequency.value = CARRIER[t];
+    filterR[t].Q.value = 2;
+    filterL[t].type = "bandpass";
+    filterL[t].frequency.value = CARRIER[t];
+    filterL[t].Q.value = 2;
+
+    // tone+noise
+    noiseGainL[t]=context.createGain();
+    noiseGainR[t]=context.createGain();
+    noiseGainRL[t]=context.createGain();
+    noiseGainRR[t]=context.createGain();
+    oscGainL[t]=context.createGain();
+    oscGainR[t]=context.createGain();
+    noiseGainL[t].gain.value=0;
+    noiseGainR[t].gain.value=0;
+    oscGainL[t].gain.value=1;
+    oscGainR[t].gain.value=1;
+    noiseGainRL[t].gain.value=0;
+    noiseGainRR[t].gain.value=1;
+    noiseL[t].connect(noiseGainL[t]);
+    noiseL[t].connect(noiseGainRL[t]);
+    noiseR[t].connect(noiseGainRR[t]);
+    noiseGainRR[t].connect(noiseGainR[t]);
+    noiseGainRL[t].connect(noiseGainR[t]);
+    noiseGainL[t].connect(filterL[t]);
+    noiseGainR[t].connect(filterR[t]);
+    oscL[t].connect(oscGainL[t]);
+    oscR[t].connect(oscGainR[t]);
+
+    // creating gain nodes and connecting them to the oscs
+    bilatGain[t]=context.createGain();
+    bilatGain[t].gain.value=BILATERAL[t]/100*0.25;
+    bilatInvertedGain[t]=context.createGain();
+    bilatInvertedGain[t].gain.value=-1;
+    bilatGain[t].connect(bilatInvertedGain[t]);
+    lfoHalf[t].connect(bilatGain[t]);
+
+    lfoGain[t]=context.createGain(); // lfo[t] varies between -1 and 1
+    lfo[t].connect(lfoGain[t]); // we will couple lfo[t] with lfoGain[t] to change the output range
+
+    fmGain[t]=context.createGain();
+    fmGain[t].gain.value=FM[t]/100*CARRIER[t];
+    filterGain[t]=context.createGain();
+    filterGain[t].gain.value=FM[t]/150*CARRIER[t];
+    lfo[t].connect(fmGain[t]);
+    lfo[t].connect(filterGain[t]);
+    fmGain[t].connect(oscL[t].frequency);
+    fmGain[t].connect(oscR[t].frequency);
+    filterGain[t].connect(filterL[t].frequency);
+    filterGain[t].connect(filterR[t].frequency);
+
+    gainL[t]=context.createGain();
+    gainR[t]=context.createGain();
+    gainI[t]=context.createGain();
+    gainL[t].gain.value=0.25;
+    gainR[t].gain.value=0.25;
+    bilatInvertedGain[t].connect(gainL[t].gain);
+    bilatGain[t].connect(gainR[t].gain);
+
+    gainI[t].gain.value=0.5;
+    lfoGain[t].connect(gainI[t].gain);
+    lfoGain[t].gain.value=ISOCHRONIC[t]/100*gainI[t].gain.value;
+
+    oscGainL[t].connect(gainL[t]);
+    oscGainR[t].connect(gainR[t]);
+    filterL[t].connect(gainL[t]);
+    filterR[t].connect(gainR[t]);
+
+    merger[t]=context.createChannelMerger(2);
+    merger[t].connect(gainI[t]);
+
+    gainL[t].connect(merger[t],0,0);
+    gainR[t].connect(merger[t],0,1);
+
+    gainGlobal[t]=context.createGain();
+    gainGlobal[t].gain.value=LEVEL[t]/100;
+    gainI[t].connect(gainGlobal[t]);
+    gainGlobal[t].connect(context.destination);
+
+    // everything is ready and connected, start!
+    lfo[t].start();
+    lfoHalf[t].start();
+    oscL[t].start();
+    oscR[t].start();
+    noiseR[t].start(0,3);
+    noiseL[t].start();
+    }
+
+
+  }
+  else alert('Web Audio API is missing. To enjoy Brainaural, please use a recent version of Chrome, Edge, Safari or Firefox (basically everything but Internet Explorer).');
+
+  // OK - build UI
+
+  // add touchstart listener to force play on iOS
+  if (bIOS==1) {
+    $("#radioTouch").css("display","block");
+    window.addEventListener('touchstart', function() {
+      // create empty buffer
+      var buffer = context.createBuffer(1, 1, 22050);
+      var source = context.createBufferSource();
+      source.buffer = buffer;
+      // connect to output (your speakers)
+      source.connect(context.destination);
+      // play the file
+      source.start(0);
+      $("#radioTouch").css("display","none")
+    }, false);
+  }
+
+  buildUI();
+  setG(0);
+
+setLevel(LEVEL[G],G);
+
+
+}
+
+
+function buildUI(){
+  $(function(){$("#carrier").slider({
+        animate: "fast",
+        min: 0,
+        max: OCTCAR,
+        step:0.01,
+        slide: function(e, ui) {
+          setCarrier(Math.pow(2,ui.value)*FCARMIN);
+        }
+      });} );
+
+      $(function(){$("#noise").slider({
+        animate: "fast",
+        min: 0,
+        max: 100,
+        step:1,
+        slide: function(e, ui) {
+          setNoise(ui.value);
+        }
+      });} );
+
+      $(function(){$("#mod").slider({
+        animate: "fast",
+        min: 0,
+        max: OCTMOD,
+        step:0.01,
+        slide: function(e, ui) {
+          setMod(Math.pow(2,ui.value)*FMODMIN);
+        }
+      });} );
+
+      $(function(){$("#binaural").slider({
+        animate: "fast",
+        min: 0,
+        max: 100,
+        step: 1,
+        slide: function(e, ui) {
+          setBinaural(ui.value);
+        }
+      });} );
+
+      $(function(){$("#bilateral").slider({
+        animate: "fast",
+        min: 0,
+        max: 100,
+        step: 1,
+        slide: function(e, ui) {
+          setBilateral(ui.value);
+        }
+      });} );
+
+      $(function(){$("#isochronic").slider({
+        animate: "fast",
+        min: 0,
+        max: 100,
+        step: 1,
+        slide: function(e, ui) {
+          setIsochronic(ui.value);
+        }
+      });} );
+
+      $(function(){$("#fm").slider({
+        animate: "fast",
+        min: 0,
+        max: 100,
+        step: 1,
+        slide: function(e, ui) {
+          setFm(ui.value);
+        }
+      });} );
+
+      $(function(){$("#level").slider({
+        animate: "fast",
+        min: 0,
+        max: 100,
+        step: 1,
+        slide: function(e, ui) {
+          setLevel(ui.value);
+        }
+      });} );
+}
+
+function setCarrier(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleCarrier(val,t,bNoMsg);
+  else setSingleCarrier(val,g,bNoMsg);
+}
+
+function setMod(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleMod(val,t,bNoMsg);
+  else setSingleMod(val,g,bNoMsg);
+}
+
+function setBinaural(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleBinaural(val,t,bNoMsg);
+  else setSingleBinaural(val,g,bNoMsg);
+}
+
+function setBilateral(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleBilateral(val,t,bNoMsg);
+  else setSingleBilateral(val,g,bNoMsg);
+}
+
+function setIsochronic(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleIsochronic(val,t,bNoMsg);
+  else setSingleIsochronic(val,g,bNoMsg);
+}
+
+function setFm(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleFm(val,t,bNoMsg);
+  else setSingleFm(val,g,bNoMsg);
+}
+
+function setNoise(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleNoise(val,t,bNoMsg);
+  else setSingleNoise(val,g,bNoMsg);
+}
+
+function setLevel(val,g,bNoMsg){
+  if(typeof g === "undefined") g=G;
+  if (MULTI) for (var t=0;t<TABS;t++) setSingleLevel(val,t,bNoMsg);
+  else setSingleLevel(val,g,bNoMsg);
+}
+
+function setSingleCarrier(val,t,bNoMsg){
+  CARRIER[t]=val;
+  oscL[t].frequency.value=CARRIER[t]-MOD[t]/2*BINAURAL[t]/100;
+  oscR[t].frequency.value=CARRIER[t]+MOD[t]/2*BINAURAL[t]/100;
+  filterL[t].frequency.value=CARRIER[t];
+  filterR[t].frequency.value=CARRIER[t];
+
+  fmGain[t].gain.value=FM[t]/100*CARRIER[t];
+  filterGain[t].gain.value=FM[t]/150*CARRIER[t];
+  var fmax=Math.pow(2,OCTCAR)*FCARMIN;
+  gainI[t].gain.value=0.5*(1-0.5*CARRIER[t]/fmax)*(1-0.6*CARRIER[t]/fmax);
+  $("#carval").val(parseInt(val)+'Hz');
+  if (!bNoMsg){
+    if (val>1000) msg("A high as you can hear!");
+    else msg("Make it low, but still audible");
+  }
+}
+
+function setSingleMod(val,t,bNoMsg){
+  MOD[t]=val;
+  oscL[t].frequency.value=CARRIER[t]+val/2*BINAURAL[t]/100;
+  oscR[t].frequency.value=CARRIER[t]-val/2*BINAURAL[t]/100;
+  lfo[t].frequency.value=val;
+  lfoHalf[t].frequency.value=val/2;
+  $("#modval").val(parseInt(val*100)/100+'Hz');
+  var text;
+  if (val<0.5)text="Ultra-Low Delta";
+  if (val>0.5)text="Delta";
+  if (val>4)text="Theta";
+  if (val>8)text="Alpha";
+  if (val>12)text="Beta";
+  if (val>30)text="Gamma";
+  if (val>60)text="High Gamma";
+  if (!bNoMsg) msg(text);
+}
+
+function setSingleBinaural(val,t,bNoMsg){
+  BINAURAL[t]=val;
+  oscL[t].frequency.value=CARRIER[t]+MOD[t]/2*BINAURAL[t]/100;
+  oscR[t].frequency.value=CARRIER[t]-MOD[t]/2*BINAURAL[t]/100;
+  noiseGainRR[t].gain.value=val/100;
+  noiseGainRL[t].gain.value=1-val/100;
+  $("#binval").val(parseInt(val)+'%');
+  if (!bNoMsg) msg('Best for Headphones');
+}
+
+function setSingleBilateral(val,t,bNoMsg){
+  BILATERAL[t]=val;
+  bilatGain[t].gain.value=BILATERAL[t]/100*0.25;
+  $("#bilval").val(parseInt(val)+'%');
+  if (!bNoMsg) msg('For Stereo Speakers and Headphones');
+}
+
+function setSingleIsochronic(val,t,bNoMsg){
+  ISOCHRONIC[t]=val;
+  lfoGain[t].gain.value=ISOCHRONIC[t]/100*gainI[t].gain.value;
+  $("#isoval").val(parseInt(val)+'%');
+  if (!bNoMsg) msg('Best for Single Speaker use');
+}
+
+function setSingleFm(val,t,bNoMsg){
+  FM[t]=val;
+  fmGain[t].gain.value=FM[t]/100*CARRIER[t];
+  filterGain[t].gain.value=FM[t]/150*CARRIER[t];
+  $("#fmval").val(parseInt(val)+'%');
+  if (!bNoMsg) msg('Works with everything!');
+}
+
+function setSingleNoise(val,t,bNoMsg){
+  NOISE[t]=val;
+  noiseGainL[t].gain.value=val/100;
+  noiseGainR[t].gain.value=val/100;
+  oscGainL[t].gain.value=1-val/100;
+  oscGainR[t].gain.value=1-val/100;
+  $("#noiseval").val(parseInt(val)+'%');
+  if (!bNoMsg) msg('Works with everything!');
+}
+
+function setSingleLevel(val,t,bNoMsg){
+  LEVEL[t]=val;
+  gainGlobal[t].gain.value=LEVEL[t]*LEVEL[t]/10000;
+  $("#levval").val(parseInt(val)+'%');
+  if (!bNoMsg){
+    if (LEVEL>0.5) msg("A loud as you want, but not louder!");
+    else msg("As quiet as you want, but audible");
+  }
+}
+
+function setSliderMod(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#mod").slider('value',Math.log2(val/FMODMIN));
+  setSingleMod(val,g,1);
+}
+
+function setSliderIso(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#isochronic").slider('value',val);
+  setSingleIsochronic(val,g,1);
+  }
+
+function setSliderBin(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#binaural").slider('value',val);
+  setSingleBinaural(val,g,1);
+}
+
+function setSliderBil(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#bilateral").slider('value',val);
+  setSingleBilateral(val,g,1);
+}
+
+function setSliderFm(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#fm").slider('value',val);
+  setSingleFm(val,g,1);
+}
+
+function setSliderCar(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#carrier").slider('value',Math.log2(val/FCARMIN));
+  setSingleCarrier(val,g,1);
+}
+
+function setSliderLvl(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#level").slider('value',val);
+  setSingleLevel(val,g,1);
+}
+
+function setSliderNoise(val,g){
+  if(typeof g === "undefined") g=G;
+  val=parseFloat(val);
+  $("#noise").slider('value',val);
+  setSingleNoise(val,g,1);
+}
+
+function setSliders(mod,car,noi,iso,bin,bil,fm,g){
+  if(typeof g === "undefined") g=G;
+  setSliderMod(mod,g);
+  setSliderCar(car,g);
+  setSliderNoise(noi,g);
+  setSliderIso(iso,g);
+  setSliderBin(bin,g);
+  setSliderBil(bil,g);
+  setSliderFm(fm,g);
+}
+
+function refreshSliders(g){
+  if (MULTI) {
+    // no need to do anything actually
+  }
+  else {
+    $("#mod").slider('value',Math.log2(MOD[g]/FMODMIN));
+    $("#modval").val(parseInt(MOD[g]*100)/100+'Hz');
+    $("#carrier").slider('value',Math.log2(CARRIER[g]/FCARMIN));
+    $("#carval").val(parseInt(CARRIER[g]*100)/100+'Hz');
+    $("#noise").slider('value',NOISE[g]);
+    $("#noiseval").val(parseInt(NOISE[g])+'%');
+    $("#isochronic").slider('value',ISOCHRONIC[g]);
+    $("#isoval").val(parseInt(ISOCHRONIC[g])+'%');
+    $("#binaural").slider('value',BINAURAL[g]);
+    $("#binval").val(parseInt(BINAURAL[g])+'%');
+    $("#bilateral").slider('value',BILATERAL[g]);
+    $("#bilval").val(parseInt(BILATERAL[g])+'%');
+    $("#fm").slider('value',FM[g]);
+    $("#fmval").val(parseInt(FM[g])+'%');
+    $("#level").slider('value',LEVEL[g]);
+    $("#levval").val(parseInt(LEVEL[g])+'%');
+  }
+}
+
+function msg(txt){
+    $("#msg").html(txt);
+    clearTimeout(msgTimer);
+    msgTimer = setTimeout(function(){msg("<b class='mod'>Scroll down</b> for more instructions...")}, 5000);
+}
+
+
+function newSet(setting){
+  var mod,car,iso,bin,bil,fm;
+  var fmin,fmax;
+  mod=MOD[G];car=CARRIER[G];iso=ISOCHRONIC[G];bin=BINAURAL[G];bil=BILATERAL[G];fm=FM[G];
+  var start,end;
+  var noi=1;
+  if (MULTI) {start=0;end=TABS}
+  else {start=G;end=G+1;}
+  for (var t=start;t<end;t++) {
+    switch (setting) {
+    case "anything":
+      mod=Math.pow(2,Math.random()*OCTMOD)*FMODMIN;
+      car=Math.pow(2,Math.random()*Math.random()*OCTCAR)*FCARMIN;
+      iso=Math.floor(Math.random()*100);bin=Math.floor(Math.random()*100);bil=Math.floor(Math.random()*100);fm=Math.floor(Math.random()*100);noi=Math.floor(Math.random()*100);
+      break;
+    case "sleep":
+      fmin=0.25;fmax=2;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      break;
+    case "dream":
+      fmin=2;fmax=6;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      break;
+    case "creative":
+      fmin=6;fmax=8;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      break;
+    case "relax":
+      fmin=8;fmax=14;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      break;
+    case "productivity":
+      fmin=14;fmax=20;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      break;
+    case "alert":
+      fmin=20;fmax=60;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      break;
+    case "headphones":
+      fmin=75;fmax=300;
+      car=(fmax-fmin)*Math.random()*Math.random()+fmin;
+      bin=100;
+      bil=Math.floor(Math.random()*50);
+      iso=Math.floor(Math.random()*25);
+      fm=0;
+      break;
+    case "mobile":
+      fmin=200;fmax=600;
+      car=(fmax-fmin)*Math.random()+fmin;
+      bin=0;
+      bil=0;
+      iso=100;
+      fm=Math.floor(Math.max(100-(car/2-100),0));
+      break;
+    case "speaker1":
+      fmin=75;fmax=300;
+      car=(fmax-fmin)*Math.random()+fmin;
+      bin=0;
+      bil=0;
+      iso=100;
+      fm=Math.floor(Math.max(175-car,0));
+      break;
+    case "speaker2":
+      fmin=75;fmax=300;
+      car=(fmax-fmin)*Math.random()+fmin;
+      bin=Math.floor(Math.random()*100);
+      bil=100;
+      iso=Math.floor(Math.random()*50);
+      fm=Math.floor(Math.max(175-car,0));
+      break;
+    case "sub":
+      fmin=15;fmax=100;
+      car=(fmax-fmin)*Math.random()+fmin;
+      bin=0;
+      bil=0;
+      iso=100;
+      fm=Math.floor(Math.max(160-4*car,0));
+      break;
+    case "hearing":
+      fmin=8000;fmax=14000;
+      car=(fmax-fmin)*Math.random()+fmin;
+      fmin=1;fmax=30;
+      mod=(fmax-fmin)*Math.random()+fmin;
+      bin=0;
+      bil=Math.floor(Math.random()*100);
+      iso=Math.floor(Math.random()*100);
+      fm=100;
+      break;
+    }
+    setSliders(mod,car,noi,iso,bin,bil,fm,t);
+  }
+}
+
+function setG(mode){
+  if (mode=="m") {
+    for (var t=0;t<TABS;t++) {
+      $("#g"+t).addClass("active");
+    }
+    MULTI=1;
+    G=0;
+  }
+  else {
+    for (var t=0;t<TABS;t++) {
+      $("#g"+t).removeClass("active");
+    }
+    $("#g"+mode).addClass("active");
+    G=mode;
+    MULTI=0;
+  }
+  refreshSliders(G);
+}
+
+function muteOutput(){
+  bMute=!bMute;
+  if (bMute) {
+    $("#mute").addClass("superactive");
+    for (var t=0;t<TABS;t++) gainGlobal[t].gain.value=0;
+  }
+  else {
+    $("#mute").removeClass("superactive");
+    for (var t=0;t<TABS;t++) gainGlobal[t].gain.value=LEVEL[t]*LEVEL[t]/10000;
+  }
+}
+
+function toURL(bRender){
+  var url='#?';
+    url+="mod0="+MOD[0];
+    url+="&car0="+CARRIER[0];
+    url+="&noi0="+NOISE[0];
+    url+="&iso0="+ISOCHRONIC[0];
+    url+="&bin0="+BINAURAL[0];
+    url+="&bil0="+BILATERAL[0];
+    url+="&fm0="+FM[0];
+    url+="&lvl0="+LEVEL[0];
+  for (var t=1;t<TABS;t++) {
+    url+="&mod"+t+"="+MOD[t];
+    url+="&car"+t+"="+CARRIER[t];
+    url+="&noi"+t+"="+NOISE[t];
+    url+="&iso"+t+"="+ISOCHRONIC[t];
+    url+="&bin"+t+"="+BINAURAL[t];
+    url+="&bil"+t+"="+BILATERAL[t];
+    url+="&fm"+t+"="+FM[t];
+    url+="&lvl"+t+"="+LEVEL[t];
+  }
+  if (bRender==1) {
+    // update the rendering linl
+    url+="&render=1";
+    window.open(url);
+  }
+  else // must then be for copying the embedded URL settings
+  window.prompt('This URL embeds all your settings. Press [Ctrl+C] to Copy', url);
+}
+
+</script>
+</body>
+</html>
