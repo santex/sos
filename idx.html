@@ -11,33 +11,45 @@
   <link rel="stylesheet" href="css/foundation.css">
   <script src="js/vendor/custom.modernizr.js"></script>
   <style type="text/css">
+div{color:#d0d0d0;}
+body {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    background-color: #141414;
+    padding:0.1em;
+    overflow:hidden;}
     span.token.good {
       color: blue;
     }
     span.token.bad {
       color: red;
     }
+
+label {
+    font-size: 0.875em;
+    color: #888;
+    padding:0.1em;
+    cursor: pointer;
+    display: inline;
+    font-weight: 500;
+    margin-bottom: 0.1875em;
+}
+a{color:#fff;}
     .hidden {display:none;}
     fieldset {width:45%;}
     .half {width:50%;}
-    .right{align:right;display:inline;}
-    .left{align:left;display:inline;}
+    .right{align:right;}
+    .left{align:left;}
   </style>
 </head>
 <body>
 
-  <div class="row hidden">
-    <div class="large-12 columns">
-      <h2></h2>
-      <p></p>
-      <hr />
-    </div>
-  </div>
+
 
   <div class="row">
     <div class="large-12 columns">
       <form class="custom">
-        <fieldset id="data"   class="hidden">
+        <fieldset id="data"   class="hidden"  >
           <legend>Participant</legend>
           <div class="row hidden">
             <div class="large-12 columns">
@@ -140,6 +152,7 @@
     <div class="large-3 columns">
 <br>        <fieldset class="right">
           <legend>Sound Controls</legend>
+<br>
           <label for="volume">Volume <span data-tooltip aria-haspopup="true" class="has-tip" title="Probably best to use your computer's volume control...">(?)</span></label>
           <input size="5" type="text" id="volume" value="0.05"/>
           <label for="pitch">Pitch / Hz <span data-tooltip aria-haspopup="true" class="has-tip" title="A high number makes a high pitch. 700 is a good value.">(?)</span></label>
@@ -155,39 +168,25 @@
         </fieldset>
       </div>
 
-    <div class="large-3 columns">
+    <div class="large-9 columns">
 
       <fieldset id="freeform" class="left">
 
           <legend>Message</legend>
-          <div class="row hidden">
-            <div class="large-12 columns">
-              <p>If you need to practise any other sequences then enter them below. If you want to use prosigns then enclose them with angle-brackets (e.g. &quot;&lt;bk&gt;&quot;) and tick the box in the sound controls.</p>
-            </div>
-          </div>
-          <div class="left">
-                <input id="fmessage" type="text" placeholder="Type your free-form text here" />
-<br>
-              <a href="javascript: void(0);" class="button play">Play</a>
-              <a href="javascript: void(0);" class="button stop">Stop</a>
 
-          </div>
-<div class="right">          <textarea id="bin_data"></textarea>
-    </div>
+                <input id="fmessage" type="text" value="SOS" style="width:58%;padding:0.1em;" placeholder="Type a message" /><textarea id="bin_data" class="right" style="width:38%;"></textarea><br>
+                &nbsp;
+                <a href="javascript: void(0);" class="button play">Play</a>
+                &nbsp;
+                <a href="javascript: void(0);" class="button stop">Stop</a>
+
+
+    <div class="left" style="padding:0.1em;">activate the microphpone & type a message</div>
+
+
         </fieldset>
       </form>
 
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <fieldset id="paypal"   class="hidden">
-          <legend>Donate</legend>
-          <p>If you find this software useful, please make a small donation to the author.</p>
-          <p><em>Thank you!</em></p>
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="hosted_button_id" value="">
-          <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-          <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-        </fieldset>
-      </form>
     </div>
   </div>
 

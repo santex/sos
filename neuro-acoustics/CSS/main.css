@@ -1,103 +1,101 @@
-html { 
-	width: 100%;
-  	height: 100%;
+html {
+  width: 100%;
+    height: 100%;
 }
-
 body  {
-	margin:0;
-	padding:0;
-	color:#000;
-	background-color: #000;
-	font-family:"Comfortaa";
-	letter-spacing:0px;
-	line-height:1.4em;
-	font-size:14px;
-	width:100%;
-  	height: 100%;
-	-webkit-font-smoothing: antialiased;
-	-webkit-transition: color 6000ms linear;
-	-moz-transition: color 6000ms linear;
-	-o-transition: color 6000ms linear;
-	-ms-transition: color 6000ms linear;
-	transition: color 6000ms linear;
-	background: url("../Pix/bg.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	}
+  margin:0;
+  padding:0;
+  color:#fff;
+    background-color: #141414;
+  font-family:"Comfortaa";
+  letter-spacing:0px;
+  line-height:1.4em;
+  font-size:14px;
+  width:100%;
+    height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: color 6000ms linear;
+  -moz-transition: color 6000ms linear;
+  -o-transition: color 6000ms linear;
+  -ms-transition: color 6000ms linear;
+  transition: color 6000ms linear;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
 
 .label {
-	letter-spacing:5px;
-	font-size:15px;
-	font-weight:bold;
+  letter-spacing:5px;
+  font-size:15px;
+  font-weight:bold;
 }
 
 .value {
-	font-size:13px;
+  font-size:13px;
 }
 
 .highlight{
-	color:#07A;
-	font-weight:bold;
+  color:#fcfcfc;
+  font-weight:bold;
 }
 
 .white{
-	color:#FFF;
-	text-shadow: 0px 0px 5px rgba(0,0,0,128);
+  color:#FFF;
+  text-shadow: 0px 0px 5px rgba(0,0,0,128);
 }
 
 .reg{
-	color:#000;
-	text-shadow: 0px 0px 5px rgba(255,255,255,128);
-	font-size:16px;
-	vertical-align: top;
+  color:#000;
+  text-shadow: 0px 0px 5px rgba(255,255,255,128);
+  font-size:16px;
+  vertical-align: top;
 }
 
 .black{
-	color:#000;
-	text-shadow: 0px 0px 5px rgba(255,255,255,128);
+  color:#000;
+  text-shadow: 0px 0px 5px rgba(255,255,255,128);
 }
 
 #msg{
-	font-size:15px;
-	text-shadow: 0px 0px 10px #fff;
+  font-size:15px;
+  text-shadow: 0px 0px 10px #fff;
 }
 
 .vol{
-	color:#000;
+  color:#000;
 }
 
 .group{
-	border-radius: 10px;
-	padding:5px 0px 0px 5px;
-	width:360px;
-	margin:auto;
-	background:rgba(255,255,255,0.3);
+  border-radius: 10px;
+  padding:5px 0px 0px 5px;
+  width:360px;
+  margin:auto;
+  background:rgba(255,255,255,0.3);
 }
 
 .group.black{
-	border: 2px solid rgba(0,0,0,0.9);
+  border: 2px solid rgba(0,0,0,0.9);
 }
 
 .group.white{
-	border: 2px solid rgba(255,255,255,1);
+  border: 2px solid rgba(255,255,255,1);
 }
 
 .group.grey{
-	border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,255,255,0.5);
 }
 
 
 .sliderGroup {
-	width:320px;
-	margin:2px auto;
-	text-align:right;
-	border: 0px solid;
+  width:320px;
+  margin:2px auto;
+  text-align:right;
+  border: 0px solid;
 }
 
-input[type="text"] { 
-    text-align: right; 
+input[type="text"] {
+    text-align: right;
     font-family: inherit;
     font-size:13px;
     background-color: transparent;
@@ -111,38 +109,38 @@ input:focus {
 
 
 .tile1{
-  	min-height: 100%;
-  	width: 100%;
-	text-align:center;
+    min-height: 100%;
+    width: 100%;
+  text-align:center;
 }
 
 .tile2{
-  	width: 100%;
-	text-align:left;
+    width: 100%;
+  text-align:left;
 }
 
 #title {
-	opacity: 1;
-	letter-spacing:1px;
-	line-height:20px;
-	font-size:38px;
-	color:#FFF;
-	padding-top:30px;
+  opacity: 1;
+  letter-spacing:1px;
+  line-height:20px;
+  font-size:38px;
+  color:#FFF;
+  padding-top:30px;
 }
 
 #subtitle {
-	opacity: 1;
-	padding-top:8px;
-	letter-spacing:2px;
-	font-size:16px;
-	color:#FFF;
+  opacity: 1;
+  padding-top:8px;
+  letter-spacing:2px;
+  font-size:16px;
+  color:#FFF;
 }
 
 .logo{
-	padding:0px;
-	margin-bottom:-2px;
-	height:36px;
-	vertical-align:bottom;
+  padding:0px;
+  margin-bottom:-2px;
+  height:36px;
+  vertical-align:bottom;
 }
 
 .slide
@@ -150,21 +148,21 @@ input:focus {
     position: absolute;
     text-align:right;
     width:80%px;
-	top:7px;
-	left:-155px;
+  top:7px;
+  left:-155px;
     z-index:10;
     transition-property:all;
-	transition-duration:1s;
-	-webkit-transition-property:all;
-	-webkit-transition-duration:1s;
-	cursor: pointer;
-	opacity:0.8;
+  transition-duration:1s;
+  -webkit-transition-property:all;
+  -webkit-transition-duration:1s;
+  cursor: pointer;
+  opacity:0.8;
 }
 
 .slide:hover
 {
-	left: 10px;
-	opacity:1;
+  left: 10px;
+  opacity:1;
 }
 
 .fb-share-button{
@@ -172,93 +170,93 @@ input:focus {
 }
 
 .section{
-	margin:40px;
-	padding:20px 40px;
-	text-align:justify;
-	border-radius: 16px;
-	background: rgba(255, 255, 255, .8);
+  margin:40px;
+  padding:20px 40px;
+  text-align:justify;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .8);
 }
 
 .sectionLast{
-	margin:0px;
-	padding: 0px 10% 15px 10%;
-	text-align:center;
-	font-size:13px;
-	line-height:1.4em;
+  margin:0px;
+  padding: 0px 10% 15px 10%;
+  text-align:center;
+  font-size:13px;
+  line-height:1.4em;
 }
 
 h1{
-	padding:0 0 15px 0;
-	text-align:left;
-	font-size:20px;
-	font-weight:normal;
-	line-height:1em;
+  padding:0 0 15px 0;
+  text-align:left;
+  font-size:20px;
+  font-weight:normal;
+  line-height:1em;
 }
 
 h2{
-	padding:10px 0px;
-	text-align:left;
-	font-size:18px;
-	font-weight:normal;
+  padding:10px 0px;
+  text-align:left;
+  font-size:18px;
+  font-weight:normal;
 }
 
 p {
-	padding:0;
+  padding:0;
 }
 
 a {
-	color:#000;
+  color:#000;
 }
 
 a:hover {
-	color:#06A;
+  color:#06A;
 }
 
 a.nounderline {
-	 text-decoration:  none;
+   text-decoration:  none;
 }
 
 a.white {
-	 color:#FFF;
+   color:#FFF;
 }
 
 a.white:hover {
-	 color:#FFF;
+   color:#FFF;
 }
 
 
 .ctrlImg{
-	height:30px;
-	width:30px;
-	margin:6px;
-	cursor:pointer;
-	-webkit-transition: 100ms linear;
-	-moz-transition: 100ms linear;
-	-o-transition: 100ms linear;
-	-ms-transition: 100ms linear;
-	transition: 100ms linear;
-	opacity:0.8;
+  height:30px;
+  width:30px;
+  margin:6px;
+  cursor:pointer;
+  -webkit-transition: 100ms linear;
+  -moz-transition: 100ms linear;
+  -o-transition: 100ms linear;
+  -ms-transition: 100ms linear;
+  transition: 100ms linear;
+  opacity:0.8;
 }
 
 .ctrlImg:hover{
-	opacity:1;
+  opacity:1;
 }
 
 .selImg{
-	height:24px;
-	width:24px;
-	margin:6px 6px 0px 6px;
-	cursor:pointer;
-	-webkit-transition: 100ms linear;
-	-moz-transition: 100ms linear;
-	-o-transition: 100ms linear;
-	-ms-transition: 100ms linear;
-	transition: 100ms linear;
-	opacity:0.8;
+  height:24px;
+  width:24px;
+  margin:6px 6px 0px 6px;
+  cursor:pointer;
+  -webkit-transition: 100ms linear;
+  -moz-transition: 100ms linear;
+  -o-transition: 100ms linear;
+  -ms-transition: 100ms linear;
+  transition: 100ms linear;
+  opacity:0.8;
 }
 
 .selImg:hover{
-	opacity:1;
+  opacity:1;
 }
 
 .active{
@@ -270,44 +268,44 @@ a.white:hover {
 }
 
 .superactive{
-	opacity:1;
+  opacity:1;
 }
 
 #msg{
-	padding:0px
-	margin:0px;
-	border: solid 0px #FFF;
-	opacity: 1;
+  padding:0px
+  margin:0px;
+  border: solid 0px #FFF;
+  opacity: 1;
 }
 
 .ctrSection {
-	padding:15px 40px;
-	border: 0px solid blue;
+  padding:15px 40px;
+  border: 0px solid blue;
 }
 
 blockquote {
-	padding: 0.25em 1.5em 0.5em 1.5em;
-	margin: 0 0 1em;
-	border-left: 1px dotted #666;
-	color: #000;
-	font-style: italic;
-	clear:both;
+  padding: 0.25em 1.5em 0.5em 1.5em;
+  margin: 0 0 1em;
+  border-left: 1px dotted #666;
+  color: #000;
+  font-style: italic;
+  clear:both;
 }
 
 #radioTouch{
-	position:fixed;
-	width:256px;
-	height:256px;
-	top:75px;
-	margin-left: auto;
-	margin-right: auto;
-	left: 0;
-	right: 0;
-	background-image: url("../Pix/tap.png");
-	background-size: 256px;
-	background-repeat: no-repeat;
-	display:none;
-	z-index:99;
+  position:fixed;
+  width:256px;
+  height:256px;
+  top:75px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  background-image: url("../Pix/tap.png");
+  background-size: 256px;
+  background-repeat: no-repeat;
+  display:none;
+  z-index:99;
 }
 
 .ui-slider-horizontal {
@@ -317,8 +315,8 @@ blockquote {
 }
 
 .ui-slider .ui-slider-handle {
-	margin-top:-6px;
-	margin-left:-11px;
+  margin-top:-6px;
+  margin-left:-11px;
     height: 20px;
     width: 20px;
     border: solid 2px #000;
@@ -356,16 +354,16 @@ blockquote {
 
 @media screen and (max-height: 640px) {
 #title {
-	display:none;
+  display:none;
 }
 #subtitle {
-	display:none;
+  display:none;
 }
 }
 
 @media screen and (max-width: 640px) {
 .section{
-	padding:10px 20px;
+  padding:10px 20px;
 }
 
 }

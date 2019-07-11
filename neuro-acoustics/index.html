@@ -40,15 +40,15 @@ background-color:#fff;
     <img src="./Pix/alien.png" class="ctrlImg" onclick="newSet('anything')" onmouseover="msg('Anything can happen! (Randomize)')" alt="">
 </div>
 
-<div class="group black">
-    <div class="sliderGroup"><span class="label black">brainwave</span><div id="mod"></div><input type="text" id="modval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderMod(this.value);"></div>
+<div class="group">
+    <div class="sliderGroup"><span class="label">brainwave</span><div id="mod"></div><input type="text" id="modval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderMod(this.value);"></div>
     </div>
     <span class="black">&darr;</span>
     <div class="group white">
-    <div class="sliderGroup"><span class="label black">a-mod</span><div id="isochronic"></div><input type="text" id="isoval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderIso(this.value);"></div>
-    <div class="sliderGroup"><span class="label black">binaural</span><div id="binaural"></div><input type="text" id="binval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderBin(this.value);"></div>
-    <div class="sliderGroup"><span class="label black">stereo</span><div id="bilateral"></div><input type="text" id="bilval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderBil(this.value);"></div>
-    <div class="sliderGroup"><span class="label black">f-mod</span><div id="fm"></div><input type="text" id="fmval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderFm(this.value);"></div>
+    <div class="sliderGroup"><span class="label">a-mod</span><div id="isochronic"></div><input type="text" id="isoval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderIso(this.value);"></div>
+    <div class="sliderGroup"><span class="label">binaural</span><div id="binaural"></div><input type="text" id="binval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderBin(this.value);"></div>
+    <div class="sliderGroup"><span class="label">stereo</span><div id="bilateral"></div><input type="text" id="bilval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderBil(this.value);"></div>
+    <div class="sliderGroup"><span class="label">f-mod</span><div id="fm"></div><input type="text" id="fmval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderFm(this.value);"></div>
     </div>
     <span class="white">&uarr;</span>
     <div class="group white">
@@ -57,7 +57,7 @@ background-color:#fff;
     </div>
     &nbsp;
     <div class="group white">
-    <div class="sliderGroup"><span class="label black">mix level</span><div id="level"></div><input type="text" id="levval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderLvl(this.value);"></div>
+    <div class="sliderGroup"><span class="label">mix level</span><div id="level"></div><input type="text" id="levval" onfocus="this.value=''" onKeyDown="if(event.keyCode==13) setSliderLvl(this.value);"></div>
 </div>
 <div class="ctrSection">
     <img src="./Pix/1.png" id="g0" class="selImg" onclick="setG(0)" onmouseover="msg('Edit Generator 1')" alt="">
@@ -277,7 +277,7 @@ Bubonic_plague (use Versenia pestis)
 Bubonic_plague_secondary_infections - 880, 787, 727, 20
 Bunion_pain - 20
 Burns - 190, 10000, 880, 787, 727, 465, 200
-Bursitis (May be caused by any number of organisms and viruses; experiment with arthritis frequencies as well.) - 880, 787, 727
+Bursitis (May be caused by any number of or experiment with arthritis frequencies as well.) - 880, 787, 727
 BX_Virus (use Cancer_BX_virus)
 BY_Virus (use Cancer_BY_virus)
 Caeliacia - 674
@@ -1714,7 +1714,7 @@ The brainwave entrainment - or brainwave synchronization - refers to the capacit
 var TABS=5;
 var G; // current gen
 var MULTI=0;
-var CARRIER=[220,30,150,432,9000]; //Hz
+var CARRIER=[432,30,150,432,9000]; //Hz
 var FCARMIN=27.5;
 var FMODMIN=0.1;
 var OCTCAR=9;
@@ -1908,6 +1908,10 @@ function buildUI(){
         max: OCTCAR,
         step:0.01,
         slide: function(e, ui) {
+          console.log(Math.pow(2,ui.value)*FCARMIN);
+          console.log(Math.pow(2,ui.value)*FCARMIN);
+          console.log(Math.pow(2,ui.value));
+          console.log(FCARMIN);
           setCarrier(Math.pow(2,ui.value)*FCARMIN);
         }
       });} );
